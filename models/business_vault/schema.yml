@@ -7,3 +7,4 @@ sources:
     tables:
       - name: as_of_date
       - name: customer_pit
+      - name: order_pit

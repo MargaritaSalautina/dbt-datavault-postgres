@@ -1,23 +1,17 @@
 {{ config(materialized='pit_incremental') }}
 
 {%- set yaml_metadata -%}
-source_model: hub_customer
-src_pk: CUSTOMER_PK
+source_model: hub_order
+src_pk: ORDER_PK
 as_of_dates_table: as_of_date
 satellites: 
-  sat_customer:
+  sat_order:
     pk:
-      PK: CUSTOMER_PK
-    ldts:
-      LDTS: EFFECTIVE_FROM
-  sat_customer_crm:
-    pk:
-      PK: CUSTOMER_PK
+      PK: ORDER_PK
     ldts:
       LDTS: EFFECTIVE_FROM
 stage_tables: 
-  stg_customers: EFFECTIVE_FROM
-  stg_customers_crm: EFFECTIVE_FROM    
+  stg_orders: EFFECTIVE_FROM
 src_ldts: EFFECTIVE_FROM
 {%- endset -%}
 
